@@ -8,7 +8,8 @@ Works with custom `etc/hosts` files
 ## Install it
 
 With [berkshelf](http://berkshelf.com/) - `Berskfile`
-```
+
+```ruby
 source 'https://supermarket.getchef.com'
 ...
 cookbook 'hostnames'
@@ -17,7 +18,8 @@ cookbook 'hostnames'
 ## Example
 
 Run via a role - `roles/base.rb`
-```
+
+```ruby
 name 'base'
 description 'Standard Sequoia setup'
 run_list(
