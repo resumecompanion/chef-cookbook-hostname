@@ -1,9 +1,37 @@
 # hostnames cookbook
 
-## Description
+Easy `hostname`, FQDN and `/etc/hosts` file updates. Less broken than the [hostname](https://github.com/3ofcoins/chef-cookbook-hostname) recipe.
 
-Sets hostname and FQDN of the node. The latest code is hosted at
-https://github.com/nathantsoi/chef-cookbook-hostname
+Works with custom `etc/hosts` files
+
+
+## Install it
+
+With [berkshelf](http://berkshelf.com/) - `Berskfile`
+```
+source 'https://supermarket.getchef.com'
+...
+cookbook 'hostnames'
+```
+
+## Example
+
+Run via a role - `roles/base.rb`
+```
+name 'base'
+description 'Standard Sequoia setup'
+run_list(
+  'recipe[hostnames::default]',
+  ...
+)
+default_attributes(
+  set_fqdn: '*.sequoiacap.com',
+  hostname_cookbook: {
+    use_node_ip: true
+  },
+  ...
+)
+```
 
 ## Attributes
 
@@ -30,10 +58,22 @@ and have node set its FQDN and hostname based on its chef node name
 
 * `hostnames::default` -- will set node's FQDN to value of `set_fqdn` attribute,
 and hostname to its host part (up to first dot).
+
 * `hostnames::vmware` -- sets hostname automatically using vmtoolsd.
 You do not need to set `node["set_fqdn"]`.
 
+## Contributing
+
+* Fork.
+
+* Make more awesome.
+
+* Pull request.
+
+* I will bump version and run: ```knife cookbook site share hostnames "Networking" -o ../```
+
 ## Author
 
-Maciej Pasternacki maciej@3ofcoins.net
-Nathan nathan@veretile.com
+(original) Maciej Pasternacki maciej@3ofcoins.net
+
+(current) [Nathan](http://nathan.vertile.com) nathan@veretile.com
