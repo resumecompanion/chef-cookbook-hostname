@@ -6,7 +6,7 @@ require 'bundler/setup'
 require 'shellwords'
 
 class Cookbook < Thor
-  COOKBOOK_NAME = 'hostname'
+  COOKBOOK_NAME = 'hostnames'
   COOKBOOK_CATEGORY = 'utilities'
 
   include Thor::Actions

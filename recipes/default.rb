@@ -4,6 +4,7 @@
 # Recipe:: default
 #
 # Copyright 2011, Maciej Pasternacki
+#           2014, Nathan Tsoi
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the

@@ -44,12 +44,12 @@ platforms:
 suites:
 - name: default
   run_list:
-    - recipe[hostname::default]
+    - recipe[hostnames::default]
   attributes:
     set_fqdn: test.example.com
 - name: wildcard
   run_list:
-    - recipe[hostname::default]
+    - recipe[hostnames::default]
   provisioner:
     solo_rb:
       node_name: test
