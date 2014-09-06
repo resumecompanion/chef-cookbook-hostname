@@ -107,7 +107,7 @@ if fqdn
 
   hostsfile_entry 'set hostname' do
     ip_address node['hostname_cookbook']['use_node_ip'] ? node['ipaddress'] : node['hostname_cookbook']['hostsfile_ip']
-    hostname "#{node['hostname']}.#{node['domain']}"
+    hostname "#{hostname}.#{node['domain']}"
     aliases [hostname]
     action :create
     notifies :reload, 'ohai[reload]', :immediately
