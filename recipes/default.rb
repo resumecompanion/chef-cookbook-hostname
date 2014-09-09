@@ -28,7 +28,9 @@
 
 fqdn = node['set_fqdn']
 if fqdn
+  # set the domain and hostname from the node name by default
   hostname, domain = node.name.split('.', 2) if !node.name.nil? && !node.name.empty?
+  # if we have the hostname in the fqdn, use that instead
   if fqdn =~ /\*\./
     domain = fqdn.sub('*.', '')
   else
