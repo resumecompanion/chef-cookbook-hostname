@@ -28,9 +28,12 @@
 
 fqdn = node['set_fqdn']
 if fqdn
-  fqdn = fqdn.sub('*', node.name)
-  fqdn =~ /^([^.]+)/
-  hostname = Regexp.last_match[1]
+  hostname, domain = node.name.split('.', 2) if !node.name.nil? && !node.name.empty?
+  if fqdn =~ /\*\./
+    domain = fqdn.sub('*.', '')
+  else
+    hostname, domain = fqdn.split('.', 2)
+  end
 
   case node['platform']
   when 'freebsd'
@@ -107,7 +110,7 @@ if fqdn
 
   hostsfile_entry 'set hostname' do
     ip_address node['hostname_cookbook']['use_node_ip'] ? node['ipaddress'] : node['hostname_cookbook']['hostsfile_ip']
-    hostname "#{hostname}.#{node['domain']}"
+    hostname "#{hostname}.#{domain}"
     aliases [hostname]
     action :create
     notifies :reload, 'ohai[reload]', :immediately
