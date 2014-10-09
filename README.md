@@ -2,7 +2,7 @@
 
 Easy `hostname`, FQDN and `/etc/hosts` file updates. Less broken than the [hostname](https://github.com/3ofcoins/chef-cookbook-hostname) recipe.
 
-Works with custom `etc/hosts` files
+Works with custom `/etc/hosts` files and fixes aws dns slowness (use `use_node_ip: true`)
 
 
 ## Install it
@@ -78,4 +78,4 @@ You do not need to set `node["set_fqdn"]`.
 
 (original) Maciej Pasternacki maciej@3ofcoins.net
 
-(current) [Nathan](http://nathan.vertile.com) nathan@veretile.com
+(current) [Nathan](http://nathan.vertile.com) nathan@vertile.com
