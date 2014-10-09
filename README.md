@@ -4,6 +4,7 @@ Easy `hostname`, FQDN and `/etc/hosts` file updates. Less broken than the [hostn
 
 Works with custom `/etc/hosts` files and fixes aws dns slowness (use `use_node_ip: true`)
 
+https://github.com/nathantsoi/chef-cookbook-hostname
 
 ## Install it
 
